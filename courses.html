@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses - College Admission Management System</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">CAMS</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="courses.html" class="active">Courses</a></li>
+            <li><a href="apply.html">Apply</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="admin.html">Admin</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <h1>Available Courses</h1>
+        
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search courses...">
+            <select id="durationFilter">
+                <option value="">All Durations</option>
+                <option value="1">1 Year</option>
+                <option value="2">2 Years</option>
+                <option value="3">3 Years</option>
+                <option value="4">4 Years</option>
+            </select>
+        </div>
+
+        <div class="table-container">
+            <table id="coursesTable">
+                <thead>
+                    <tr>
+                        <th>Course Name</th>
+                        <th>Duration</th>
+                        <th>Fees</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="coursesList">
+                    <!-- Courses will be populated by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 College Admission Management System. All rights reserved.</p>
+    </footer>
+
+    <script src="js/courses.js"></script>
+</body>
+</html> 

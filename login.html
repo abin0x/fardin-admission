@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login | Excellence University</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            min-height: 100vh;
+            background: linear-gradient(120deg, #f6f8fb 60%, #e3e7ef 100%);
+            font-family: 'Inter', Arial, sans-serif;
+        }
+        .admin-login-card {
+            background: #fff;
+            border-radius: 22px;
+            box-shadow: 0 8px 32px 0 rgba(60,72,88,.13);
+            padding: 2.5rem 2rem 2rem 2rem;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            border: 1.5px solid #f0f2f7;
+        }
+        .admin-login-card h2 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #1a237e;
+            margin-bottom: 0.5rem;
+        }
+        .admin-login-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+        .admin-login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+        .admin-login-form label {
+            font-weight: 700;
+            color: #1a237e;
+            margin-bottom: 0.2rem;
+            text-align: left;
+        }
+        .admin-login-form input {
+            padding: 1rem 1.2rem;
+            border-radius: 10px;
+            border: 1.5px solid #dbe3ef;
+            background: #f6f8fb;
+            font-size: 1.08rem;
+            transition: border 0.2s;
+        }
+        .admin-login-form input:focus {
+            outline: 2px solid #448aff;
+            border-color: #448aff;
+        }
+        .admin-login-form button {
+            font-size: 1.1rem;
+            padding: 1rem 0;
+            border-radius: 10px;
+            background: #1a237e;
+            color: #fff;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .admin-login-form button:hover {
+            background: #448aff;
+        }
+        .demo-credentials {
+            margin-top: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            align-items: center;
+        }
+        .demo-badge {
+            background: #e3e7ef;
+            color: #1a237e;
+            padding: 0.1rem 0.7rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.98rem;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body class="login-page">
+    <header>
+        <nav class="navbar minimal-navbar">
+            <div class="logo">
+                <span class="logo-icon">EU</span>
+                <span class="logo-text">CAMS</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#courses">Courses</a></li>
+                <li><a href="index.html#apply">Apply</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="login.html" class="active">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="login-main">
+        <div class="admin-login-card">
+            <h2><i class="fas fa-lock"></i> Admin Login</h2>
+            <p>Enter your password to access the admin panel</p>
+            <form class="admin-login-form" onsubmit="return handleLogin(event)">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Enter admin username" required>
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter admin password" required>
+                <button type="submit">Login</button>
+            </form>
+            <div class="demo-credentials">
+                <span class="demo-badge">Demo Username: admin</span>
+                <span class="demo-badge">Demo Password: admin123</span>
+            </div>
+        </div>
+    </div>
+    <script src="js/login.js"></script>
+</body>
+</html> 

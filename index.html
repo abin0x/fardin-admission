@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excellence University | College Admission Management System</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar minimal-navbar">
+            <div class="logo">
+                <span class="logo-icon">EU</span>
+                <span class="logo-text">CAMS</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#apply">Apply</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="login.html">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section (Slider) -->
+    <section class="hero-slider-section">
+        <div class="hero-slider">
+            <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=1200&q=80');">
+                <div class="hero-slide-overlay"></div>
+                <div class="hero-slide-content">
+                    <h1>Welcome to <span class="highlight">Excellence University</span></h1>
+                    <p>Shape your future with innovative education and a vibrant campus life.</p>
+                    <a href="#apply" class="btn btn-primary">Apply Now</a>
+                </div>
+            </div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=1200&q=80');">
+                <div class="hero-slide-overlay"></div>
+                <div class="hero-slide-content">
+                    <h1>Modern Facilities &amp; Research</h1>
+                    <p>Learn in state-of-the-art labs and classrooms with world-class faculty.</p>
+                    <a href="#courses" class="btn btn-outline">Explore Courses</a>
+                </div>
+            </div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1200&q=80');">
+                <div class="hero-slide-overlay"></div>
+                <div class="hero-slide-content">
+                    <h1>Join a Global Community</h1>
+                    <p>Connect, collaborate, and grow with students from around the world.</p>
+                    <a href="#contact" class="btn btn-primary">Contact Us</a>
+                </div>
+            </div>
+            <button class="hero-slider-arrow prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="hero-slider-arrow next"><i class="fas fa-chevron-right"></i></button>
+            <div class="hero-slider-dots"></div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="courses-section" id="courses">
+        <div class="section-header">
+            <h2>Our Courses</h2>
+            <p>Discover our comprehensive range of programs designed to prepare you for the future</p>
+        </div>
+        <div class="courses-search-filter">
+            <input type="text" placeholder="Search courses..." class="courses-search">
+            <select class="courses-filter">
+                <option value="all">All</option>
+                <option value="engineering">Engineering</option>
+                <option value="business">Business</option>
+                <option value="technology">Technology</option>
+            </select>
+        </div>
+        <div class="courses-grid">
+            <div class="course-card">
+                <img src="assets/images/course1.jpg" alt="Computer Science & Engineering">
+                <div class="course-category">Engineering</div>
+                <h3>Computer Science & Engineering</h3>
+                <p>Comprehensive program covering software development, algorithms, and system design.</p>
+                <div class="course-meta">
+                    <span><i class="fas fa-clock"></i> 4 Years</span>
+                    <span><i class="fas fa-dollar-sign"></i> $12,000/year</span>
+                </div>
+            </div>
+            <div class="course-card">
+                <img src="assets/images/course2.jpg" alt="Business Administration">
+                <div class="course-category">Business</div>
+                <h3>Business Administration</h3>
+                <p>Learn management, finance, marketing, and entrepreneurship skills.</p>
+                <div class="course-meta">
+                    <span><i class="fas fa-clock"></i> 3 Years</span>
+                    <span><i class="fas fa-dollar-sign"></i> $10,000/year</span>
+                </div>
+            </div>
+            <div class="course-card">
+                <img src="assets/images/course3.jpg" alt="Data Science">
+                <div class="course-category">Technology</div>
+                <h3>Data Science</h3>
+                <p>Advanced data analytics, machine learning, and statistical modeling.</p>
+                <div class="course-meta">
+                    <span><i class="fas fa-clock"></i> 2 Years</span>
+                    <span><i class="fas fa-dollar-sign"></i> $15,000/year</span>
+                </div>
+            </div>
+            <div class="course-card">
+                <img src="assets/images/course4.jpg" alt="Mechanical Engineering">
+                <div class="course-category">Engineering</div>
+                <h3>Mechanical Engineering</h3>
+                <p>Design, analysis, and manufacturing of mechanical systems.</p>
+                <div class="course-meta">
+                    <span><i class="fas fa-clock"></i> 4 Years</span>
+                    <span><i class="fas fa-dollar-sign"></i> $11,000/year</span>
+                </div>
+            </div>
+            <div class="course-card">
+                <img src="assets/images/course5.jpg" alt="Digital Marketing">
+                <div class="course-category">Business</div>
+                <h3>Digital Marketing</h3>
+                <p>Modern marketing strategies for the digital world.</p>
+                <div class="course-meta">
+                    <span><i class="fas fa-clock"></i> 1 Year</span>
+                    <span><i class="fas fa-dollar-sign"></i> $8,000/year</span>
+                </div>
+            </div>
+            <div class="course-card">
+                <img src="assets/images/course6.jpg" alt="Artificial Intelligence">
+                <div class="course-category">Technology</div>
+                <h3>Artificial Intelligence</h3>
+                <p>Advanced data analytics, neural networks, and machine learning.</p>
+                <div class="course-meta">
+                    <span><i class="fas fa-clock"></i> 2 Years</span>
+                    <span><i class="fas fa-dollar-sign"></i> $15,000/year</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Apply for Admission Section -->
+    <section class="apply-section" id="apply">
+        <div class="section-header">
+            <h2>Apply for Admission</h2>
+            <p>Take the first step towards your bright future</p>
+        </div>
+        <form class="apply-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Full Name *</label>
+                    <input type="text" name="fullName" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label>Date of Birth *</label>
+                    <input type="date" name="dob" placeholder="mm/dd/yyyy" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Email Address *</label>
+                    <input type="email" name="email" placeholder="Enter your email address" required>
+                </div>
+                <div class="form-group">
+                    <label>Contact Number *</label>
+                    <input type="text" name="phone" placeholder="Enter your contact number" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Select Course *</label>
+                    <select name="course" required>
+                        <option value="">Select a course</option>
+                        <option>Computer Science & Engineering</option>
+                        <option>Business Administration</option>
+                        <option>Data Science</option>
+                        <option>Mechanical Engineering</option>
+                        <option>Digital Marketing</option>
+                        <option>Artificial Intelligence</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Upload Photo</label>
+                    <input type="file" name="photo" accept="image/*">
+                </div>
+                <div class="form-group">
+                    <label>Upload Documents</label>
+                    <input type="file" name="documents" multiple>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Application</button>
+        </form>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="section-header">
+            <h2>Contact Us</h2>
+            <p>Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <div class="info-item"><i class="fas fa-envelope"></i> admissions@excellence.edu</div>
+                <div class="info-item"><i class="fas fa-phone"></i> +1 (855) 123-4567</div>
+                <div class="info-item"><i class="fas fa-map-marker-alt"></i> 123 University Ave, Education City, EC 12345</div>
+                <div class="info-item"><i class="fas fa-clock"></i> <b>Office Hours:</b><br>Mon-Fri: 9:00 AM - 6:00 PM<br>Sat: 10:00 AM - 4:00 PM<br>Sun: Closed</div>
+            </div>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label>Name *</label>
+                    <input type="text" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label>Email *</label>
+                    <input type="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label>Message *</label>
+                    <textarea placeholder="Enter your message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-about">
+                <h4>Excellence University</h4>
+                <p>Shaping tomorrow's leaders through innovative education and transformative experiences.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#apply">Apply</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Info</h4>
+                <p>123 University Ave<br>Education City, EC 12345</p>
+                <p>Phone: +1 (855) 123-4567</p>
+                <p>Email: admissions@excellence.edu</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Excellence University. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 

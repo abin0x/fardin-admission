@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel | Excellence University</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            min-height: 100vh;
+            background: linear-gradient(120deg, #f6f8fb 60%, #e3e7ef 100%);
+            font-family: 'Inter', Arial, sans-serif;
+        }
+        .admin-panel-container {
+            max-width: 1200px;
+            margin: 3rem auto 2rem auto;
+            padding: 2.5rem 2rem;
+            background: #fff;
+            border-radius: 22px;
+            box-shadow: 0 8px 32px 0 rgba(60,72,88,.13);
+            border: 1.5px solid #f0f2f7;
+        }
+        .admin-panel-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2.5rem;
+        }
+        .admin-panel-header-left {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .admin-panel-header h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #1a237e;
+        }
+        .admin-username-badge {
+            background: #f0f4fa;
+            color: #1a237e;
+            font-weight: 600;
+            border-radius: 8px;
+            padding: 0.4rem 1.1rem;
+            font-size: 1.02rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .admin-panel-header button {
+            background: #1a237e;
+            color: #fff;
+            font-weight: 700;
+            border: none;
+            border-radius: 8px;
+            padding: 0.7rem 2rem;
+            font-size: 1.08rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .admin-panel-header button:hover {
+            background: #448aff;
+        }
+        .admin-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px 0 rgba(60,72,88,.07);
+        }
+        .admin-table th, .admin-table td {
+            padding: 1rem 1.2rem;
+            text-align: left;
+        }
+        .admin-table th {
+            background: #f0f4fa;
+            color: #1a237e;
+            font-weight: 700;
+            font-size: 1.05rem;
+        }
+        .admin-table tr {
+            border-bottom: 1.5px solid #e3e7ef;
+        }
+        .admin-table tr:last-child {
+            border-bottom: none;
+        }
+        .admin-table td {
+            color: #222;
+            font-size: 1.02rem;
+        }
+        .admin-actions {
+            display: flex;
+            gap: 0.7rem;
+        }
+        .admin-actions button {
+            border: none;
+            border-radius: 6px;
+            padding: 0.5rem 1.2rem;
+            font-size: 0.98rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+        .admin-actions .edit-btn {
+            background: #fffbe7;
+            color: #bfa100;
+            border: 1.5px solid #ffe082;
+        }
+        .admin-actions .edit-btn:hover {
+            background: #fffde7;
+            color: #7c6f00;
+        }
+        .admin-actions .delete-btn {
+            background: #ffebee;
+            color: #c62828;
+            border: 1.5px solid #ffcdd2;
+        }
+        .admin-actions .delete-btn:hover {
+            background: #ffcdd2;
+            color: #b71c1c;
+        }
+        .no-applications {
+            text-align: center;
+            color: #888;
+            font-size: 1.1rem;
+            padding: 2rem 0;
+        }
+        @media (max-width: 900px) {
+            .admin-panel-container { padding: 1.2rem 0.5rem; }
+            .admin-table th, .admin-table td { padding: 0.7rem 0.5rem; }
+            .admin-panel-header-left { flex-direction: column; gap: 0.7rem; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar minimal-navbar">
+            <div class="logo">
+                <span class="logo-icon">EU</span>
+                <span class="logo-text">CAMS</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#courses">Courses</a></li>
+                <li><a href="index.html#apply">Apply</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="login.html" class="active">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="admin-panel-container">
+        <div class="admin-panel-header">
+            <div class="admin-panel-header-left">
+                <h2><i class="fas fa-user-shield"></i> Admin Panel</h2>
+                <span class="admin-username-badge"><i class="fas fa-user"></i> Admin: admin</span>
+            </div>
+            <button onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+        </div>
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Date of Birth</th>
+                    <th>Email</th>
+                    <th>Contact</th>
+                    <th>Course</th>
+                    <th>Application Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="applications-list">
+                <!-- Applications will be rendered here by JS -->
+            </tbody>
+        </table>
+        <div id="no-applications" class="no-applications" style="display:none;">No applications found.</div>
+    </div>
+    <script>
+    // Check admin login
+    function checkAdminLogin() {
+        const isLoggedIn = localStorage.getItem('adminLoggedIn') === 'true';
+        if (!isLoggedIn) {
+            window.location.href = 'login.html';
+        }
+    }
+    // Logout function
+    function logout() {
+        localStorage.removeItem('adminLoggedIn');
+        window.location.href = 'login.html';
+    }
+    // Render applications
+    function renderApplications() {
+        const applicationsList = document.getElementById('applications-list');
+        const noApplications = document.getElementById('no-applications');
+        applicationsList.innerHTML = '';
+        const applications = JSON.parse(localStorage.getItem('applications') || '[]');
+        if (!applications.length) {
+            noApplications.style.display = 'block';
+            return;
+        } else {
+            noApplications.style.display = 'none';
+        }
+        applications.forEach((app, idx) => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td>${app.fullName || ''}</td>
+                <td>${app.dob || ''}</td>
+                <td>${app.email || ''}</td>
+                <td>${app.phone || ''}</td>
+                <td>${app.course || ''}</td>
+                <td>${app.applicationDate ? new Date(app.applicationDate).toLocaleDateString() : ''}</td>
+                <td class="admin-actions">
+                    <button class="edit-btn" onclick="editApplication(${idx})">Edit</button>
+                    <button class="delete-btn" onclick="deleteApplication(${idx})">Delete</button>
+                </td>
+            `;
+            applicationsList.appendChild(tr);
+        });
+    }
+    // Edit and Delete (placeholders)
+    function editApplication(idx) {
+        alert('Edit functionality not implemented in this demo.');
+    }
+    function deleteApplication(idx) {
+        if (confirm('Are you sure you want to delete this application?')) {
+            const applications = JSON.parse(localStorage.getItem('applications') || '[]');
+            applications.splice(idx, 1);
+            localStorage.setItem('applications', JSON.stringify(applications));
+            renderApplications();
+        }
+    }
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function() {
+        checkAdminLogin();
+        renderApplications();
+    });
+    </script>
+</body>
+</html> 
