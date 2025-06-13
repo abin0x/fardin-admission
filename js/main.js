@@ -110,22 +110,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 course: formData.get('course'),
                 applicationDate: new Date().toISOString(),
             };
-            // Handle photo upload
+            // Only store file names, not file data
             const photoFile = formData.get('photo');
             if (photoFile && photoFile.size > 0) {
-                application.photo = await fileToBase64(photoFile);
+                application.photoName = photoFile.name;
             }
-            // Handle document uploads
             const documentFiles = formData.getAll('documents');
             if (documentFiles && documentFiles.length > 0 && documentFiles[0].size > 0) {
-                application.documents = await Promise.all(documentFiles.map(fileToBase64));
+                application.documentNames = documentFiles.map(file => file.name);
             }
             // Save to localStorage
             const existing = JSON.parse(localStorage.getItem('applications') || '[]');
             existing.push(application);
             localStorage.setItem('applications', JSON.stringify(existing));
             // Generate and download receipt
-            const html = `<!DOCTYPE html><html><head><meta charset='UTF-8'><title>Application Receipt</title><style>body{font-family:Inter,Arial,sans-serif;background:#f6f8fb;color:#222;padding:2rem;}h2{color:#1a237e;}table{width:100%;border-collapse:collapse;margin-top:1.5rem;}td{padding:0.7rem 1rem;border-bottom:1px solid #e3e7ef;}tr:last-child td{border-bottom:none;}th{text-align:left;padding:0.7rem 1rem;background:#f0f4fa;}@media(max-width:600px){body{padding:0.5rem;}table,td,th{font-size:0.98rem;}}</style></head><body><h2>Application Receipt</h2><table>` + Object.entries(application).filter(([k,v])=>k!=='photo'&&k!=='documents').map(([k,v]) => `<tr><th>${k}</th><td>${v}</td></tr>`).join('') + `</table><p style='margin-top:2rem;color:#448aff;'>Thank you for applying to Excellence University!</p></body></html>`;
+            const html = `<!DOCTYPE html><html><head><meta charset='UTF-8'><title>Application Receipt</title><style>body{font-family:Inter,Arial,sans-serif;background:#f6f8fb;color:#222;padding:2rem;}h2{color:#1a237e;}table{width:100%;border-collapse:collapse;margin-top:1.5rem;}td{padding:0.7rem 1rem;border-bottom:1px solid #e3e7ef;}tr:last-child td{border-bottom:none;}th{text-align:left;padding:0.7rem 1rem;background:#f0f4fa;}@media(max-width:600px){body{padding:0.5rem;}table,td,th{font-size:0.98rem;}}</style></head><body><h2>Application Receipt</h2><table>` + Object.entries(application).map(([k,v]) => `<tr><th>${k}</th><td>${Array.isArray(v) ? v.join(', ') : v}</td></tr>`).join('') + `</table><p style='margin-top:2rem;color:#448aff;'>Thank you for applying to Excellence University!</p></body></html>`;
             const blob = new Blob([html], {type:'text/html'});
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
@@ -137,15 +136,6 @@ document.addEventListener('DOMContentLoaded', function() {
             // Reset form
             applyForm.reset();
             alert('Application submitted successfully!');
-        });
-    }
-    // Helper to convert file to base64
-    function fileToBase64(file) {
-        return new Promise((resolve, reject) => {
-            const reader = new FileReader();
-            reader.onload = () => resolve(reader.result);
-            reader.onerror = reject;
-            reader.readAsDataURL(file);
         });
     }
 
